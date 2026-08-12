@@ -44,6 +44,33 @@ Example call:
 
 The server signs every request with the same HMAC-SHA256 scheme the Announcr gateway expects (`x-announcr-timestamp` + `x-announcr-signature`) and POSTs to `/hooks/in/{publicId}`.
 
+## Publishing `@announcr/mcp` to npm
+
+This plugin launches the server with `npx -y @announcr/mcp`. The package must be published before the plugin will work for other users.
+
+From the Announcr monorepo root (after the MCP package is on `main`):
+
+```bash
+# 1. Build the package
+pnpm --filter @announcr/mcp build
+
+# 2. Log in to npm (one-time)
+npm login
+
+# 3. Publish (scoped package must be public)
+cd packages/mcp
+npm publish --access public
+```
+
+Notes:
+- You need an npm account that owns (or can create) the `@announcr` scope.
+- If the scope is not available, publish under your personal scope instead (e.g. `@daveyoung74/announcr-mcp`) and update `.mcp.json` accordingly.
+- After publishing, verify with:
+
+```bash
+npx -y @announcr/mcp --help   # or just run it; it should start the stdio server
+```
+
 ## License
 
 MIT
