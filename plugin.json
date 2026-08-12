@@ -1,0 +1,12 @@
+{
+    "name": "announcr",
+    "version": "0.1.0",
+    "description": "Push spoken announcements into Announcr from any Grok bot or agent via signed webhooks.",
+    "author": {
+      "name": "Dave Young",
+      "url": "https://announcr.fm"
+    },
+    "homepage": "https://announcr.fm",
+    "keywords": ["announcr", "announcr.fm", "tts", "ambient-audio"],
+    "license": "MIT"
+  }
